@@ -1,29 +1,49 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [ "character", "npc", "faction" ],
     "templates": {
       "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
+        "atk": {
+          "value": 0
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
+        "psionics": {
+          "psionic": false,
+          "disciplines": {
+            "biopsionics": {
+              "skill": ""
+            },
+            "metapsionics": {
+              "skill": ""
+            },
+            "precognition": {
+              "skill": ""
+            },
+            "telekinesis": {
+              "skill": ""
+            },
+            "telepathy": {
+              "skill": ""
+            },
+            "teleportation": {
+              "skill": ""
+            }
+          },
+          "system_strain": 0
+        }
+      },
+      "skills": {
+        "max_skill_level": {
+          "value": 1
         },
-        "biography": ""
+        "skill_points": {
+          "value": 0
+        }
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": [ "base" ],
+      "biography": "",
       "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
         "str": {
           "value": 10
         },
@@ -43,31 +63,92 @@
           "value": 10
         }
       }
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": [ "equipment", "armor", "weapon", "background", "class", "focus", "skill", "psionic_technique" ],
     "templates": {
-      "base": {
-        "description": ""
+      "eqbase": {
+        "cost": 0,
+        "tl": "4",
+        "enc": 1,
+        "bundle": false,
+        "readied": false,
+        "description": "",
+        "stored": ""
       }
     },
-    "item": {
-      "templates": ["base"],
+    "equipment": {
+      "templates": [ "eqbase" ],
       "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "weight": 0
     },
-    "feature": {
-      "templates": ["base"]
+    "armor": {
+      "templates": [ "eqbase" ],
+      "ac": "10"
     },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+    "weapon": {
+      "templates": [ "eqbase" ],
+      "attack": 0,
+      "dmg": "1d6",
+      "range": "",
+      "mag": "1",
+      "energy": false,
+      "burst": false,
+      "attr": "dex",
+      "shockpoints": 0,
+      "shockac": 0,
+      "shock": false
+    },
+    "background": {
+      "templates": [],
+      "free_skill": "",
+      "quick_skill": "",
+      "growth": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "learning": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": ""
+      },
+      "selected_skills": ""
+    },
+    "class": {
+      "templates": []
+    },
+    "focus": {
+      "templates": [],
+      "description": "",
+      "level": 0,
+      "lvl1_desc": "",
+      "lvl2_desc": ""
+    },
+    "skill": {
+      "templates": [],
+      "rank": -1,
+      "base_roll": "2d6",
+      "flat_mod": 0,
+      "bonus_flag": false,
+      "notes": "",
+      "double_rank": false,
+      "psionic": false
+    },
+    "psionic_technique": {
+      "templates": [],
+      "core": false,
+      "desc": "",
+      "level": 1
     }
   }
 }
