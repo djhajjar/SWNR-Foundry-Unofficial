@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [ "character", "npc", "faction", "planet" ],
     "templates": {
       "base": {
         "health": {
@@ -8,66 +8,155 @@
           "min": 0,
           "max": 10
         },
-        "power": {
-          "value": 5,
+        "system_strain": {
+          "value": 0,
+          "permanent": 0,
           "min": 0,
-          "max": 5
+          "max": 10
         },
-        "biography": ""
+        "base_atk": {
+          "value": 0
+        },
+        "homeworld": "",
+        "biography": "",
+        "conditions": "",
+        "notes": "",
+        "encumbrance": {
+          "max": 5,
+          "value": 0,
+          "min": 0
+        },
+        "currency": {
+          "credits": {
+            "value": 0
+          },
+          "debts": {
+            "value": 0
+          }
+        },
+        "psionics": {
+          "effort": {
+            "value": 0,
+            "max": 1,
+            "min": 0,
+            "permanent": 0
+          }
+        }
       }
     },
     "character": {
-      "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
-        }
+      "templates": [ "base" ],
+      "xp": {
+        "value": 0
       },
-      "abilities": {
+      "attributes": {
         "str": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         },
         "dex": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         },
         "con": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         },
         "int": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         },
         "wis": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         },
         "cha": {
-          "value": 10
+          "value": 10,
+          "mod_misc": 0
         }
+      },
+      "saves": {
+        "physical": {
+          "stat": "con",
+          "misc": 0
+        },
+        "evasion": {
+          "stat": "dex",
+          "misc": 0
+        },
+        "mental": {
+          "stat": "wis",
+          "misc": 0
+        }
+      },
+      "skills": {
+        "max_level": 2,
+        "skill_points": 0
       }
     },
     "npc": {
-      "templates": ["base"],
-      "cr": 0
+      "templates": [ "base" ],
+      "saves": {
+        "value": 0,
+        "physical_mod": 0,
+        "evasion_mod": 0,
+        "mental_mod": 0
+      },
+      "skills": {
+        "mod": 0
+      }
+    },
+    "faction": {
+      "templates": []
+    },
+    "planet": {
+      "templates": []
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": [ "skill", "species", "background", "class", "foci", "equipment", "armor", "weapon", "psionic_technique", "cybernetic", "ability" ],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "flags": []
       }
     },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    "skill": {
+      "templates": [ "base" ],
+      "rank": -1,
+      "formula": "2d6",
+      "attirbute": "int",
+      "psychic": false
     },
-    "feature": {
-      "templates": ["base"]
+    "species": {
+      "templates": [ "base" ]
     },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+    "background": {
+      "templates": [ "base" ]
+    },
+    "class": {
+      "templates": [ "base" ]
+    },
+    "foci": {
+      "templates": [ "base" ]
+    },
+    "equipment": {
+      "templates": [ "base" ]
+    },
+    "armor": {
+      "templates": [ "base" ]
+    },
+    "weapon": {
+      "templates": [ "base" ]
+    },
+    "psionic_technique": {
+      "templates": [ "base" ]
+    },
+    "cybernetic": {
+      "templates": [ "base" ]
+    },
+    "ability": {
+      "templates": [ "base" ]
     }
   }
 }
