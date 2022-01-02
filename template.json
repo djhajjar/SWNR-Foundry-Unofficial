@@ -1,6 +1,15 @@
 {
   "Actor": {
-    "types": [ "character", "npc", "faction", "planet" ],
+    "types": [
+      "character",
+      "npc",
+      "faction",
+      "planet",
+      "poi",
+      "vehicle",
+      "drone",
+      "ship"
+    ],
     "templates": {
       "base": {
         "health": {
@@ -19,6 +28,7 @@
         },
         "homeworld": "",
         "biography": "",
+        "species": "",
         "conditions": "",
         "notes": "",
         "encumbrance": {
@@ -45,7 +55,9 @@
       }
     },
     "character": {
-      "templates": [ "base" ],
+      "templates": [
+        "base"
+      ],
       "xp": {
         "value": 0
       },
@@ -95,7 +107,9 @@
       }
     },
     "npc": {
-      "templates": [ "base" ],
+      "templates": [
+        "base"
+      ],
       "saves": {
         "value": 0,
         "physical_mod": 0,
@@ -107,56 +121,363 @@
       }
     },
     "faction": {
-      "templates": []
+      "templates": [],
+      "attributes": {
+        "force": 1,
+        "cunning": 1,
+        "wealth": 1
+      },
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "credits": {
+        "value": 0,
+        "income": 0,
+        "income_notes": ""
+      },
+      "homeworld": "",
+      "tags": [],
+      "xp": {
+        "gained": 0,
+        "spent": 0
+      }
     },
     "planet": {
-      "templates": []
+      "templates": [],
+      "sector_number": 1,
+      "tags": [],
+      "description": "",
+      "gm_notes": "",
+      "government": "",
+      "faction": "",
+      "map": {
+        "row": 0,
+        "col": 0
+      },
+      "attributes": {
+        "atmosphere": "",
+        "temperature": "",
+        "biosphere": "",
+        "population": "",
+        "tl": 4
+      }
+    },
+    "poi": {
+      "templates": [],
+      "point": "",
+      "occupied": "",
+      "situation": "",
+      "relationship": "",
+      "contact": ""
+    },
+    "vehicle": {
+      "templates": [],
+      "cost": 0,
+      "speed": 0,
+      "armor": 0,
+      "health": {
+        "value": 0,
+        "min": 0,
+        "max": 10
+      },
+      "tonnage": 0,
+      "tl": 3,
+      "description": ""
+    },
+    "drone": {
+      "templates": [],
+      "cost": 0,
+      "fittings": 1,
+      "ac": 12,
+      "enc": 0,
+      "health": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "range": 100,
+      "tl": 4
+    },
+    "ship": {
+      "templates": [],
+      "cost": 0,
+      "speed": 1,
+      "armor": 0,
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "crew": {
+        "min": 1,
+        "max": 1,
+        "value": 1
+      },
+      "ac": 11,
+      "power": 5,
+      "mass": 0,
+      "hard": 1,
+      "class": "",
+      "hull_type": "",
+      "description": "",
+      "operating_cost": 0,
+      "maintenance_cost": 0,
+      "last maintenance": "",
+      "home": "",
+      "cargo": ""
     }
   },
   "Item": {
-    "types": [ "skill", "species", "background", "class", "foci", "equipment", "armor", "weapon", "psionic_technique", "cybernetic", "ability" ],
+    "types": [
+      "skill",
+      "background",
+      "class",
+      "foci",
+      "equipment",
+      "armor",
+      "weapon",
+      "psionic_technique",
+      "cybernetic",
+      "class_ability",
+      "mod",
+      "drone_fitting",
+      "starship_fitting",
+      "starship_weapon",
+      "starship_armor",
+      "faction_goal",
+      "faction_asset"
+    ],
     "templates": {
       "base": {
         "description": "",
         "flags": []
+      },
+      "eqbase": {
+        "cost": 0,
+        "enc": 0,
+        "tl": 4,
+        "readied": false,
+        "nonenc": false,
+        "artifact": false
+      },
+      "starship_eqbase": {
+        "cost": 0,
+        "power": 0,
+        "mass": 0,
+        "class": "",
+        "tl": 4,
+        "power_scale": false,
+        "mass_scale": false
       }
     },
     "skill": {
-      "templates": [ "base" ],
+      "templates": [
+        "base"
+      ],
       "rank": -1,
       "formula": "2d6",
       "attirbute": "int",
-      "psychic": false
-    },
-    "species": {
-      "templates": [ "base" ]
+      "psychic": false,
+      "foci": false,
+      "class": false,
+      "background": false
     },
     "background": {
-      "templates": [ "base" ]
+      "templates": [
+        "base"
+      ],
+      "freeskill": "",
+      "quick_skills": [],
+      "growth": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "learning": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": ""
+      }
     },
     "class": {
-      "templates": [ "base" ]
+      "templates": [
+        "base"
+      ],
+      "ability": "",
+      "hd": "1d6",
+      "hd_bonus": 0,
+      "atk": 0
     },
     "foci": {
-      "templates": [ "base" ]
+      "templates": [
+        "base"
+      ],
+      "level1": "",
+      "level2": ""
     },
     "equipment": {
-      "templates": [ "base" ]
+      "templates": [
+        "base",
+        "eqbase"
+      ],
+      "package": {
+        "num": 1,
+        "encper": 1
+      }
     },
     "armor": {
-      "templates": [ "base" ]
+      "templates": [
+        "base"
+      ],
+      "ac": {
+        "base": 10,
+        "higher": 0
+      },
+      "armortype": ""
     },
     "weapon": {
-      "templates": [ "base" ]
+      "templates": [
+        "base",
+        "eqbase"
+      ],
+      "range": {
+        "effective": 50,
+        "max": 100,
+        "ranged": true
+      },
+      "damage": {
+        "die": "d6",
+        "num": "1",
+        "flat": "0",
+        "override": "",
+        "special": false
+      },
+      "shock": {
+        "base": 0,
+        "ac": 15
+      },
+      "burst": false,
+      "reload": 1,
+      "magazine": 1,
+      "attribute": "dex",
+      "skill": ""
     },
     "psionic_technique": {
-      "templates": [ "base" ]
+      "templates": [
+        "base"
+      ],
+      "level": 0,
+      "skill": "",
+      "core_technique": false,
+      "core": {
+        "level0": "",
+        "level1": "",
+        "level2": "",
+        "level3": "",
+        "level4": ""
+      },
+      "active": false,
+      "strain_cost_override": -1
     },
     "cybernetic": {
-      "templates": [ "base" ]
+      "templates": [
+        "base",
+        "eqbase"
+      ],
+      "strain": 1
     },
-    "ability": {
-      "templates": [ "base" ]
+    "class_ability": {
+      "templates": [
+        "base"
+      ]
+    },
+    "mod": {
+      "templates": [
+        "base",
+        "eqbase"
+      ],
+      "equiped_to": {
+        "id": "",
+        "name": ""
+      },
+      "fix": 1,
+      "cost_multiplyer": 0,
+      "bonus": {
+        "atk": 0,
+        "dmg": 0,
+        "skill": {
+          "name": "",
+          "bonus": 0
+        }
+      },
+      "ship": false
+    },
+    "drone_fitting": {
+      "templates": [
+        "base"
+      ],
+      "cost": 0,
+      "tl": 0,
+      "equippment_link": {
+        "id": "",
+        "name": ""
+      }
+    },
+    "starship_fitting": {
+      "templates": [
+        "base",
+        "starship_eqbase"
+      ]
+    },
+    "starship_weapon": {
+      "templates": [
+        "base",
+        "starship_eqbase"
+      ],
+      "hard": 1,
+      "qualities": {
+        "ammo": 0,
+        "ammo_cost": 0,
+        "ap": 0,
+        "cloud": false,
+        "clumsy": false,
+        "flak": false
+      },
+      "dmg": {
+        "die": "d6",
+        "num": "1",
+        "flat": "0",
+        "override": "1d6",
+        "special": false
+      }
+    },
+    "starship_armor": {
+      "templates": [
+        "base",
+        "starship_eqbase"
+      ],
+      "ac": 1,
+      "speed": 0
+    },
+    "faction_goal": {
+      "templates": [],
+      "completed": false,
+      "difficulty": 1,
+      "progress": "",
+      "description": ""
+    },
+    "faction_asset": {
+      "templates": []
     }
   }
 }

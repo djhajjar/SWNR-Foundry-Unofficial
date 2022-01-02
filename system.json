@@ -3,8 +3,8 @@
   "title": "Stars Without Number Revised Unofficial",
   "description": "The Stars Without Number Revised Unofficial system for FoundryVTT!",
   "version": "1.1.0",
-  "minimumCoreVersion": "0.8.5",
-  "compatibleCoreVersion": "0.8.9",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
   "author": "Link Shadowelf",
   "esmodules": [ "module/swnr.mjs" ],
   "styles": [ "css/swnr.css" ],
@@ -17,8 +17,8 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "gridDistance": 1,
+  "gridUnits": "m",
   "primaryTokenAttribute": "health",
   "url": "",
   "manifest": "",
